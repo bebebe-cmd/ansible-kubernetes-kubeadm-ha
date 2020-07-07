@@ -1,3 +1,6 @@
+# Forked version to support Centos 8  
+
+
 # Ansible Playbooks to install an HA Kubernetes (multi-master) cluster using Kubeadm.  
 
 This repository provides Ansible Playbooks to install a Kubernetes HA cluster in an airgapped environment.

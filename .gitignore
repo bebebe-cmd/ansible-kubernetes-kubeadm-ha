@@ -3,3 +3,4 @@
 *.key
 *secret.yaml
 key.pem
+reset_nodes.sh

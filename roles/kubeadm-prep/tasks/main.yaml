@@ -11,11 +11,17 @@
   command: setenforce 0
   ignore_errors: True
 
+- name: add k8s repos again
+  copy:
+    src: kubernetes.repo
+    dest: /etc/yum.repos.d/kubernetes.repo
+
 - name: Install kubelet package
   become: yes
   yum:
     name: "kubelet-{{kubeadm_version}}"
     enablerepo: kubernetes
+    state: latest
 
 - name: Install kubectl package
   become: yes

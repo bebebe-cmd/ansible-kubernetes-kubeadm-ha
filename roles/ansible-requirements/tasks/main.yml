@@ -8,9 +8,9 @@
   when: has_yum.rc == 0
 
 - name: Install python2 [yum].
-  raw: yum install -y python
+  raw: yum install -y python2
   register: installed_via_yum
   when: has_yum.rc == 0
 
 - name: Ensure python2 has been installed properly.
-  raw: test -e /usr/bin/python
+  raw: test -e /usr/bin/python2

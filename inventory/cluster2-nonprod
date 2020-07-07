@@ -1,18 +1,21 @@
 [k8s-master-primary]
-master1.domain.local
+master-m3
 
 [k8s-master-replicas]
-master2.domain.local
-master3.domain.local
+master-m1
+master-m2
 
 [k8s-masters:children]
 k8s-master-primary
 k8s-master-replicas
 
 [k8s-workers]
-worker1.domain.local
-worker2.domain.local
-worker3.domain.local
+worker-1-m1
+worker-2-m1
+worker-1-m2
+worker-2-m2
+worker-1-m3
+worker-2-m3
 
 [k8s-nodes:children]
 k8s-masters
@@ -20,3 +23,6 @@ k8s-workers
 
 [cluster2-nonprod:children]
 k8s-nodes
+
+#[k8s-nodes:vars]
+#ansible_python_interpreter=/usr/bin/python2

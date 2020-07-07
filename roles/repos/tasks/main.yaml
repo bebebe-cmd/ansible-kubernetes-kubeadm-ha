@@ -5,9 +5,10 @@
   with_items:
     - yum-utils
 
-- name: "Enable extras"
-  shell:
-    yum-config-manager --enable "CentOS-7 - Extras"
+#- name: "Enable extras"
+#  shell:
+#    yum-config-manager --enable "CentOS-7 - Extras"
+#    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 - name: Add docker-ce-stable repo
   yum_repository:
@@ -22,7 +23,7 @@
   yum_repository:
     name: kubernetes
     description: Kubernetes repo
-    baseurl: https://pkgs.domain.local/linux/kubernetes/yum/repos/kubernetes-el7-$basearch
+    baseurl: https://pkgs.domain.local/linux/kubernetes/yum/repos/kubernetes-el8-$basearch
     gpgcheck: no
     sslverify: no
     enabled: false

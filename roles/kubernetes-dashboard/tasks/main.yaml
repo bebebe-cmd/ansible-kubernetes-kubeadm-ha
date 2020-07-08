@@ -4,11 +4,11 @@
     dest: /tmp/kubernetes-dashboard.yaml
     force: yes
 
-- name: Set kubernetes-dashboard container image value
-  replace:
-    path: /tmp/kubernetes-dashboard.yaml
-    regexp: "image: kubernetesui"
-    replace: "image: {{ container_registry }}/keystone"
+#- name: Set kubernetes-dashboard container image value
+#  replace:
+#    path: /tmp/kubernetes-dashboard.yaml
+#    regexp: "image: kubernetesui"
+#    replace: "image: {{ container_registry }}/keystone"
 
 - name: Create kubernetes-dashboard Deployment
   shell: kubectl apply -f /tmp/kubernetes-dashboard.yaml

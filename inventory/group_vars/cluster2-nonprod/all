@@ -1,15 +1,15 @@
 ---
 
-docker_version: 18.09.6
-kubernetes_version: v1.15.0
-kubeadm_version: 1.15.0
+docker_version: 19.03.11
+kubernetes_version: v1.18.0
+kubeadm_version: 1.18.0
 
 # kubernetes API load balanced VIP for HA installations
-kubernetes_loadbalanced_api_dns: k8s-api02.nonprod.domain.local
-kubernetes_cluster_label: cluster2-nonprod
+kubernetes_loadbalanced_api_dns: api-nonprod.k8s.lok
+kubernetes_cluster_label: monsters-nonprod
 
 # Container registry01
-container_registry: container-registry01.nonprod.domain.local
+# container_registry: gcr.io
 
 # Docker Daemon configuration
 docker_ce_daemon_options:
@@ -32,12 +32,12 @@ kubeadm_config_options:
     controlPlaneEndpoint: "{{ kubernetes_loadbalanced_api_dns }}:6443"
     networking:
         podSubnet: 10.244.0.0/16
-    imageRepository: "{{ container_registry }}/keystone"
+#    imageRepository: "{{ container_registry }}/keystone"
     useHyperKubeImage: true
     clusterName: "{{ kubernetes_cluster_label }}"
     etcd:
         local:
-            imageRepository: "{{ container_registry }}/keystone"
+#           imageRepository: "{{ container_registry }}/keystone"
 
 
 # Addon Container Images

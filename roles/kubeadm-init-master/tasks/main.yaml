@@ -21,19 +21,6 @@
 
 - name: Create .kube folder
   file:
-    path: "~{{ ansible_ssh_user }}/.kube"
-    state: directory
-    owner: "{{ ansible_ssh_user }}"
-
-- name: Copy admin.conf to .kube folder
-  copy:
-    src: /etc/kubernetes/admin.conf
-    dest: "~{{ ansible_ssh_user }}/.kube/config"
-    owner: "{{ ansible_ssh_user }}"
-    remote_src: yes
-
-- name: Create .kube folder
-  file:
     path: "/root/.kube"
     state: directory
     owner: "root"
@@ -55,7 +42,7 @@
     - ca.key
     - sa.key
     - sa.pub
-    - front-proxy-ca.crt 
+    - front-proxy-ca.crt
     - front-proxy-ca.key
 
 - name: "Fetching Kubernetes Master ETCD files from primary master"
@@ -73,4 +60,4 @@
     dest: /tmp/kubeadm-ha/{{item}}
     flat: yes
   with_items:
-    - admin.conf 
+    - admin.conf
